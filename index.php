@@ -1,3 +1,3 @@
 <?php
 
-echo 'BIG test';
+echo 'test';
