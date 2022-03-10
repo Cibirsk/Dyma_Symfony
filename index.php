@@ -1,18 +1,25 @@
 <?php
 
-class User
-{
-    // public $name;
-    // public $age;
-    public function __construct(public $name, public $age)
-    {
-        $this->name = $name;
-        $this->age = $age;
+class Reader {
+
+  public function __construct(public $filename) {
+    if (file_exists($filename)) {
+      $this->handle = fopen($filename, 'r');
+    } else {
+      echo "Le fichier n'existe pas";
     }
+  }
+
+
+  public function read() {
+    echo fread($this->handle, 10);
+  }
+
+  function __destruct() {
+    fclose($this->handle);
+  }
+
 }
 
-$user = new User('Mike', 29);
-echo $user->name . '<br>';
-echo $user->age . '<br>';
-
-// var_dump($user);
+$reader = new Reader(__DIR__ . '/test.txt');
+$reader->read();
