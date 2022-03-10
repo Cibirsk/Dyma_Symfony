@@ -1,3 +1,4 @@
+<pre>
 <?php
 
 class User 
@@ -10,5 +11,21 @@ class User
     }
 }
 
+class Admin extends User
+{
+    public $isAdmin = true;
+}
 
-$user = new User();
+$user = new User('Jean');
+$admin = new Admin('BoB');
+
+var_dump($user);
+var_dump($admin);
+
+
+
+
+
+
+?>
+</pre>
