@@ -1,31 +1,28 @@
 <pre>
 <?php
 
-class User 
-{
-    public $isAdmin = false;
+class User {
+  function __construct(public string $prenom, public string $nom) {}
 
-    function __construct(public $name)
-    {
-        
-    }
+  function direBonjour() {
+    echo "Bonjour, je suis $this->prenom $this->nom. <br>";
+  }
 }
 
-class Admin extends User
-{
-    public $isAdmin = true;
+class Admin extends User {
+  public bool $isAdmin = true;
+  function __construct(string $prenom, string $nom, public bool $superadmin) {
+    parent::__construct($prenom, $nom);
+  }
+
 }
 
-$user = new User('Jean');
-$admin = new Admin('BoB');
+$dupont = new Admin('Jean', 'Dupont', true);
+$dupont->direBonjour(); // Bonjour, je suis Jean Dupont.
+echo $dupont->superadmin . '<br>'; // 1
 
-var_dump($user);
-var_dump($admin);
-
-
-
-
-
+$mike = new User('Bob','Sinclar');
+$mike->direBonjour();
 
 ?>
 </pre>
