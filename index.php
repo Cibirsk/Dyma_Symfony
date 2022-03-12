@@ -2,18 +2,33 @@
 <?php
 
 class User {
-  function __construct(public $name) {}
+  private $fullName;
+
+  function __construct(private $firstName, private $lastName){
+      $this->fullName = $this->firstName . ' ' . $this->lastName;
+  }
+
+//   function getFullName(){
+//       return $this->fullName;
+//   }
+
+//   function setFirstName($value){
+//       $this->firstName = $value;
+//       $this->fullName = $this->firstName . ' ' . $this->lastName;
+//   }
+
+//   function setLastName($value){
+//       $this->lastName = $value;
+//       $this->fullName = $this->firstName . ' ' . $this->lastName;
+//   }
 }
 
-class Admin extends User {
-}
+// $user = new User('Bob', 'Sinclar');
+// echo $user->getFullName() . '<br>';
 
-$user = new User('Bob');
-echo $user->name;
-
-
-
-
+// $user->setFirstName('Paul');
+// $user->setLastName('Brandon');
+// echo $user->getFullName() . '<br>';
 
 
 
