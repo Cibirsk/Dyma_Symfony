@@ -9,34 +9,27 @@ class User {
     $this-> nomComplet = $prenom . ' ' . $nom;
   }
 
-  function setPrenom(string $nouveauPrenom) {
-    $this->prenom = $nouveauPrenom;
-    $this->nomComplet = $nouveauPrenom . ' ' . $this->nom;
+  function __isset($prop) {
+    return isset($this->$prop);
   }
 
-  function setNom(string $nouveauNom) {
-    $this->nom = $nouveauNom;
-    $this->nomComplet = $this->prenom . ' ' . $nouveauNom;
-  }
+  function __get(string $prop) {
+    if (isset($this->$prop)) {
+      return $this->$prop;
+    } else {
+      echo "La propriété n'existe pas !";
+    }
+  } 
 
-  function getPrenom() {
-    return $this->prenom;
-  }
-
-  function getNom() {
-    return $this->nom;
-  }
-
-  function getNomComplet() {
-    return $this->nomComplet;
+  function __set(string $prop, string $val) {
+    $this->$prop = $val;
+    if ($prop === 'prenom' || $prop === 'nom') {
+      $this->nomComplet = $this->prenom . ' ' . $this->nom;
+    }
   }
 }
 
 $user1 = new User('Jean', 'Dupont');
-echo $user1->getNomComplet(), '<br>'; // Jean Dupont
-$user1->setPrenom('Marie');
-$user1->setNom('Dupuis');
-echo $user1->getNomComplet(); // Marie Dupuis
-
+echo isset($user1->nom), '<br>'; // 1
 ?>
 </pre>
