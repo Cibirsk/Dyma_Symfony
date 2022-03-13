@@ -2,35 +2,41 @@
 <?php
 
 class User {
-  private $fullName;
 
-  function __construct(private $firstName, private $lastName){
-      $this->fullName = $this->firstName . ' ' . $this->lastName;
+  private string $nomComplet;
+  
+  function __construct(private string $prenom, private string $nom) {
+    $this-> nomComplet = $prenom . ' ' . $nom;
   }
 
-//   function getFullName(){
-//       return $this->fullName;
-//   }
+  function setPrenom(string $nouveauPrenom) {
+    $this->prenom = $nouveauPrenom;
+    $this->nomComplet = $nouveauPrenom . ' ' . $this->nom;
+  }
 
-//   function setFirstName($value){
-//       $this->firstName = $value;
-//       $this->fullName = $this->firstName . ' ' . $this->lastName;
-//   }
+  function setNom(string $nouveauNom) {
+    $this->nom = $nouveauNom;
+    $this->nomComplet = $this->prenom . ' ' . $nouveauNom;
+  }
 
-//   function setLastName($value){
-//       $this->lastName = $value;
-//       $this->fullName = $this->firstName . ' ' . $this->lastName;
-//   }
+  function getPrenom() {
+    return $this->prenom;
+  }
+
+  function getNom() {
+    return $this->nom;
+  }
+
+  function getNomComplet() {
+    return $this->nomComplet;
+  }
 }
 
-// $user = new User('Bob', 'Sinclar');
-// echo $user->getFullName() . '<br>';
-
-// $user->setFirstName('Paul');
-// $user->setLastName('Brandon');
-// echo $user->getFullName() . '<br>';
-
-
+$user1 = new User('Jean', 'Dupont');
+echo $user1->getNomComplet(), '<br>'; // Jean Dupont
+$user1->setPrenom('Marie');
+$user1->setNom('Dupuis');
+echo $user1->getNomComplet(); // Marie Dupuis
 
 ?>
 </pre>
