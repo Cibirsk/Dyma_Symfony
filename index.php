@@ -1,20 +1,40 @@
 <pre>
 <?php
 
-class Math{
-    public static float $pi = 3.14;
-
-    static function getPi(){
-        return self::$pi; //remplace this->
+abstract class Greeting 
+{
+    function setFirstName($value)
+    {
+        $this->firstName = $value;
     }
+
+    function getFirstName() 
+    {
+        return $this->firstName;
+    }
+
+    function setLastName($value)
+    {
+        $this->lastName = $value;
+    }
+
+    function getLastName() 
+    {
+        return $this->lastName;
+    }
+    
+    abstract function greeting();
 }
 
-echo Math::$pi;      //remplace ->
-echo Math::getPi();
+class User extends Greeting
+{
 
-$math = new Math();
-echo $math::$pi;
-echo $math::getPi();
+}
+
+class Admin extends Greeting
+{
+
+}
 
 ?>
 </pre>
