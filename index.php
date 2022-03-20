@@ -1,15 +1,12 @@
 <pre>
 <?php
 
-function func()
-{
+require __DIR__ . "/lib/User.php";
+use Dyma\User;  //antislash pour indiquer le namespace
 
-}
 
-function func()
-{
+$user = new User(); 
 
-}
 
 ?>
 </pre>
