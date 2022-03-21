@@ -1,6 +1,6 @@
 <?php
 
-namespace Dyma;
+namespace Dyma\models;
 
 class User
 {
