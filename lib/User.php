@@ -4,10 +4,8 @@ namespace Dyma;
 
 class User
 {
-
     function __construct()
     {
-       echo "lib User construct";
+       echo "Lib User construct";
     }
-
 }
