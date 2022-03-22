@@ -6,6 +6,6 @@ class Email
 {
     function __construct()
     {
-        echo "Construct Email";
+        echo "Lib Email Construct <br>";
     }
 }
