@@ -1,4 +1,6 @@
 {
     "name": "stephane_leveille/myproject",
-    "require": {}
+    "require": {
+        "symfony/debug": "^4.4"
+    }
 }
