@@ -1,6 +1,6 @@
 {
     "name": "stephane_leveille/myproject",
     "require": {
-        "symfony/debug": "^4.4"
+        "symfony/error-handler": "^6.0"
     }
 }
