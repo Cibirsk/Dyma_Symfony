@@ -1,6 +1,8 @@
 <?php
 
-class User extends Database 
+namespace database\models;
+
+class User extends \database\Database 
 {
     public function affiche()
     {
